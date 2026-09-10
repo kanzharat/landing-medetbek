@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f766e">
   <meta name="description" content="Qalam Hub is a coworking space in Astana with an open space, meeting rooms, a quiet zone and flexible pricing. Book your seat online.">
   <title>Qalam Hub | Coworking Space in Astana</title>
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <header class="site-header">
     <div class="header-inner">
       <a class="logo" href="#about">Qalam Hub</a>
@@ -23,7 +25,7 @@
       </nav>
     </div>
   </header>
-  <main>
+  <main id="content">
     <section id="about" class="hero">
       <div class="hero-text">
         <h1>Qalam Hub</h1>
@@ -31,7 +33,7 @@
         <p>Qalam Hub is a coworking space in the center of Astana. We give freelancers, students and small teams a calm and well equipped place to work: fast internet, comfortable desks, meeting rooms and free coffee. Come for a day or stay for a month, your desk is always ready.</p>
         <a class="btn" href="#booking">Book a seat</a>
       </div>
-      <img src="img/hero.svg" alt="Bright coworking hall with a desk, a laptop, a chair and a plant near a large window">
+      <img src="img/hero.svg" width="560" height="400" alt="Bright coworking hall with a desk, a laptop, a chair and a plant near a large window">
     </section>
     <section id="advantages" class="advantages">
       <h2>Why Qalam Hub</h2>
@@ -58,17 +60,17 @@
       <h2>Our halls</h2>
       <div class="cards">
         <article class="card">
-          <img src="img/hall-open.svg" alt="Open space hall with rows of desks and monitors">
+          <img src="img/hall-open.svg" width="400" height="260" loading="lazy" alt="Open space hall with rows of desks and monitors">
           <h3>Open space</h3>
           <p>60 desks in a light hall with panoramic windows. Choose any free seat or reserve a fixed one with your own locker.</p>
         </article>
         <article class="card">
-          <img src="img/hall-meeting.svg" alt="Meeting room with a large table, chairs and a presentation screen">
+          <img src="img/hall-meeting.svg" width="400" height="260" loading="lazy" alt="Meeting room with a large table, chairs and a presentation screen">
           <h3>Meeting rooms</h3>
           <p>Three rooms for 4 to 12 people with screens and whiteboards. Booking by the hour, free for team tariffs.</p>
         </article>
         <article class="card">
-          <img src="img/hall-quiet.svg" alt="Quiet zone booth with a single desk and a lamp">
+          <img src="img/hall-quiet.svg" width="400" height="260" loading="lazy" alt="Quiet zone booth with a single desk and a lamp">
           <h3>Quiet zone</h3>
           <p>Single booths for deep focus work and online calls. Soundproof walls, a lamp and a comfortable chair.</p>
         </article>
@@ -114,9 +116,9 @@
       <div class="booking-grid">
         <form class="booking-form">
           <label for="name">Name</label>
-          <input id="name" name="name" type="text" placeholder="Your name" required>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
           <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="4" placeholder="Which tariff and date do you want?" required></textarea>
           <button class="btn" type="submit">Send request</button>
