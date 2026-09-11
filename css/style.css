@@ -2,10 +2,13 @@
   --accent: #0f766e;
   --accent-dark: #115e59;
   --accent-soft: #f0fdfa;
+  --ink: #0f172a;
   --text: #1f2937;
   --muted: #475569;
   --border: #e2e8f0;
   --bg: #ffffff;
+  --bg-gray: #f8fafc;
+  --shadow: 0 10px 30px rgba(15, 118, 110, 0.12);
 }
 
 * {
@@ -20,7 +23,7 @@ body {
   margin: 0;
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--text);
   background: var(--bg);
 }
@@ -56,21 +59,43 @@ button:focus-visible {
 }
 
 h1, h2, h3 {
-  line-height: 1.2;
+  color: var(--ink);
+  line-height: 1.15;
   margin: 0 0 12px;
 }
 
 h1 {
-  font-size: 2.2rem;
+  font-size: 2.3rem;
+  letter-spacing: -0.02em;
 }
 
 h2 {
-  font-size: 1.7rem;
-  margin-bottom: 24px;
+  font-size: 1.8rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 28px;
+}
+
+h2::before {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 5px;
+  margin-bottom: 14px;
+  border-radius: 3px;
+  background: var(--accent);
 }
 
 h3 {
   font-size: 1.15rem;
+}
+
+.kicker {
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 .site-header {
@@ -84,7 +109,7 @@ h3 {
 .header-inner {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 12px 20px;
+  padding: 10px 20px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -118,12 +143,15 @@ h3 {
 
 .site-header nav a:hover {
   color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
 }
 
 main > section {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 48px 20px;
+  padding: 56px 20px;
   scroll-margin-top: 64px;
 }
 
@@ -133,24 +161,27 @@ main > section {
   align-items: center;
 }
 
-.tagline {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--accent);
-  margin-top: 0;
+.hero img {
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.hero .btn {
+  margin-top: 8px;
 }
 
 .btn {
   display: inline-block;
-  padding: 10px 24px;
+  padding: 12px 28px;
   border: 2px solid var(--accent);
-  border-radius: 8px;
+  border-radius: 10px;
   background: var(--accent);
   color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 .btn:hover {
@@ -170,7 +201,7 @@ main > section {
 
 .advantages {
   background: var(--accent-soft);
-  border-radius: 16px;
+  border-radius: 20px;
 }
 
 .advantage-list {
@@ -178,13 +209,35 @@ main > section {
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 24px;
+  gap: 28px 24px;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .advantage-list p {
   margin: 0;
   color: var(--muted);
+}
+
+.icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  background: var(--bg);
+  box-shadow: 0 2px 8px rgba(15, 118, 110, 0.15);
+}
+
+.icon-wrap svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .cards {
@@ -195,17 +248,23 @@ main > section {
 
 .card {
   border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
+  border-radius: 16px;
+  padding: 24px;
   background: var(--bg);
   display: flex;
   flex-direction: column;
   gap: 8px;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
 }
 
 .card img {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .card p {
@@ -221,16 +280,38 @@ main > section {
 }
 
 .card .btn {
-  align-self: start;
-  margin-top: 8px;
+  align-self: stretch;
+  margin-top: 12px;
+  text-align: center;
 }
 
 .card-featured {
+  position: relative;
   border: 2px solid var(--accent);
 }
 
+.badge {
+  position: absolute;
+  top: -13px;
+  right: 20px;
+  padding: 3px 14px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pricing {
+  background: var(--bg-gray);
+  border-radius: 20px;
+}
+
 .price {
-  font-size: 1.6rem;
+  margin: 0;
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--accent);
 }
@@ -258,10 +339,10 @@ main > section {
 .booking-form input,
 .booking-form textarea {
   width: 100%;
-  padding: 10px 12px;
+  padding: 11px 14px;
   margin-bottom: 12px;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 10px;
   font: inherit;
   color: var(--text);
 }
@@ -274,6 +355,17 @@ main > section {
 
 .booking-form .btn {
   justify-self: start;
+}
+
+.contacts {
+  background: var(--accent-soft);
+  border-radius: 16px;
+  padding: 24px 28px;
+  height: fit-content;
+}
+
+.contacts h3 {
+  margin-top: 0;
 }
 
 .contacts address {
@@ -294,7 +386,7 @@ main > section {
 .site-footer p {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 22px 20px;
   text-align: center;
   color: var(--muted);
 }
@@ -303,18 +395,37 @@ main > section {
   html {
     scroll-behavior: auto;
   }
+
+  .btn,
+  .card {
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
 }
 
 @media (min-width: 760px) {
   h1 {
-    font-size: 2.8rem;
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  main > section {
+    padding: 72px 20px;
   }
 
   .hero {
-    grid-template-columns: 1.1fr 1fr;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 48px;
   }
 
   .booking-grid {
     grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
   }
 }
