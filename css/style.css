@@ -59,6 +59,7 @@ button:focus-visible {
 }
 
 h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
   color: var(--ink);
   line-height: 1.15;
   margin: 0 0 12px;
@@ -118,7 +119,8 @@ h3 {
 }
 
 .logo {
-  font-size: 1.3rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--accent);
   text-decoration: none;
@@ -168,6 +170,44 @@ main > section {
 
 .hero .btn {
   margin-top: 8px;
+}
+
+.stats {
+  grid-column: 1 / -1;
+  margin: 24px 0 0;
+  padding: 28px 0 0;
+  border-top: 1px solid var(--border);
+  list-style: none;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.stats strong {
+  display: block;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.stats span {
+  color: var(--muted);
+}
+
+.quote-band {
+  background: #faf3e6;
+}
+
+.quote-band p {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 56px 20px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+  line-height: 1.45;
+  text-align: center;
+  color: var(--accent-dark);
 }
 
 .btn {
@@ -272,17 +312,41 @@ main > section {
   color: var(--muted);
 }
 
-.card ul {
-  margin: 0;
-  padding-left: 20px;
-  color: var(--muted);
-  flex-grow: 1;
-}
-
 .card .btn {
   align-self: stretch;
   margin-top: 12px;
   text-align: center;
+}
+
+.plan-for {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.features {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  flex-grow: 1;
+}
+
+.features li {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 4px;
+}
+
+.features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
 }
 
 .card-featured {
@@ -427,5 +491,18 @@ main > section {
   .booking-grid {
     grid-template-columns: 1.2fr 1fr;
     gap: 40px;
+  }
+
+  .stats {
+    margin-top: 40px;
+  }
+
+  .stats strong {
+    font-size: 2.1rem;
+  }
+
+  .quote-band p {
+    padding: 72px 20px;
+    font-size: 1.9rem;
   }
 }
