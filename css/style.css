@@ -2,6 +2,8 @@
   --accent: #0f766e;
   --accent-dark: #115e59;
   --accent-soft: #f0fdfa;
+  --orange: #f97316;
+  --orange-dark: #ea580c;
   --ink: #0f172a;
   --text: #1f2937;
   --muted: #475569;
@@ -65,11 +67,6 @@ h1, h2, h3 {
   margin: 0 0 12px;
 }
 
-h1 {
-  font-size: 2.3rem;
-  letter-spacing: -0.02em;
-}
-
 h2 {
   font-size: 1.8rem;
   letter-spacing: -0.01em;
@@ -115,7 +112,7 @@ h3 {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 8px 24px;
+  gap: 8px 20px;
 }
 
 .logo {
@@ -150,6 +147,94 @@ h3 {
   text-underline-offset: 6px;
 }
 
+.hero-banner {
+  position: relative;
+}
+
+.hero-banner img {
+  width: 100%;
+  height: clamp(400px, 55vw, 560px);
+  object-fit: cover;
+}
+
+.hero-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(9, 42, 40, 0.85), rgba(9, 42, 40, 0.2) 55%, rgba(9, 42, 40, 0));
+}
+
+.hero-overlay {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 32px;
+}
+
+.hero-overlay h1 {
+  margin: 0;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.hero-overlay p {
+  margin: 0;
+  max-width: 320px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ccfbf1;
+}
+
+.stripes {
+  display: grid;
+}
+
+.stripe {
+  padding: 18px 20px;
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.stripe-teal {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.stripe-teal:hover {
+  background: var(--accent-dark);
+}
+
+.stripe-orange {
+  background: var(--orange);
+  color: #ffffff;
+}
+
+.stripe-orange:hover {
+  background: var(--orange-dark);
+}
+
+.stripe-light {
+  background: var(--bg);
+  color: var(--ink);
+  border-bottom: 1px solid var(--border);
+}
+
+.stripe-light:hover {
+  background: var(--bg-gray);
+}
+
 main > section {
   max-width: 1100px;
   margin: 0 auto;
@@ -157,57 +242,8 @@ main > section {
   scroll-margin-top: 64px;
 }
 
-.hero {
-  display: grid;
-  gap: 32px;
-  align-items: center;
-}
-
-.hero img {
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-}
-
-.hero .btn {
-  margin-top: 8px;
-}
-
-.stats {
-  grid-column: 1 / -1;
-  margin: 24px 0 0;
-  padding: 28px 0 0;
-  border-top: 1px solid var(--border);
-  list-style: none;
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-}
-
-.stats strong {
-  display: block;
-  font-size: 1.7rem;
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1.2;
-}
-
-.stats span {
-  color: var(--muted);
-}
-
-.quote-band {
-  background: #faf3e6;
-}
-
-.quote-band p {
-  max-width: 820px;
-  margin: 0 auto;
-  padding: 56px 20px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.5rem;
-  line-height: 1.45;
-  text-align: center;
-  color: var(--accent-dark);
+.about > p {
+  max-width: 720px;
 }
 
 .btn {
@@ -237,6 +273,40 @@ main > section {
 .btn-outline:hover {
   background: var(--accent-soft);
   color: var(--accent-dark);
+}
+
+.btn-pill {
+  padding: 9px 22px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+
+.stats-card {
+  margin-top: 36px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.stats {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.stats strong {
+  display: block;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.stats span {
+  color: var(--muted);
 }
 
 .advantages {
@@ -368,6 +438,21 @@ main > section {
   text-transform: uppercase;
 }
 
+.quote-band {
+  background: #faf3e6;
+}
+
+.quote-band p {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 56px 20px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+  line-height: 1.45;
+  text-align: center;
+  color: var(--accent-dark);
+}
+
 .pricing {
   background: var(--bg-gray);
   border-radius: 20px;
@@ -442,17 +527,64 @@ main > section {
 }
 
 .site-footer {
-  background: var(--accent-soft);
-  border-top: 1px solid var(--border);
-  margin-top: 24px;
+  margin-top: 40px;
+  background: var(--ink);
+  color: #cbd5e1;
 }
 
-.site-footer p {
+.footer-inner {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 22px 20px;
-  text-align: center;
-  color: var(--muted);
+  padding: 48px 20px 32px;
+  display: grid;
+  gap: 32px;
+}
+
+.footer-logo {
+  margin: 0 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.footer-brand p {
+  margin: 0;
+}
+
+.site-footer nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 6px;
+}
+
+.site-footer nav a {
+  color: #cbd5e1;
+  text-decoration: none;
+}
+
+.site-footer nav a:hover {
+  color: #5eead4;
+  text-decoration: underline;
+}
+
+.footer-contacts p {
+  margin: 0 0 6px;
+}
+
+.footer-contacts a {
+  color: #5eead4;
+}
+
+.footer-copy {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px 20px;
+  border-top: 1px solid #1e293b;
+  font-size: 0.9rem;
+  color: #94a3b8;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -471,10 +603,6 @@ main > section {
 }
 
 @media (min-width: 760px) {
-  h1 {
-    font-size: 3rem;
-  }
-
   h2 {
     font-size: 2rem;
   }
@@ -483,18 +611,16 @@ main > section {
     padding: 72px 20px;
   }
 
-  .hero {
-    grid-template-columns: 1.05fr 1fr;
-    gap: 48px;
+  .stripes {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
-  .booking-grid {
-    grid-template-columns: 1.2fr 1fr;
-    gap: 40px;
+  .stripe-light {
+    border-bottom: none;
   }
 
-  .stats {
-    margin-top: 40px;
+  .stats-card {
+    padding: 32px 36px;
   }
 
   .stats strong {
@@ -504,5 +630,15 @@ main > section {
   .quote-band p {
     padding: 72px 20px;
     font-size: 1.9rem;
+  }
+
+  .booking-grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1.6fr 1fr 1.4fr;
+    gap: 40px;
   }
 }
