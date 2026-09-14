@@ -16,7 +16,8 @@ Repository: https://github.com/kanzharat/landing-medetbek
 - Heading hierarchy from h1 to h3, every image has an alt text
 - In head: title, meta description, meta viewport, SVG favicon
 - Responsive layout, checked at 375 px and 1280 px, mobile first CSS with grid and flexbox
-- Hand drawn SVG illustrations, no frameworks, templates or builders
+- No frameworks, templates or builders, all code written by hand
+- Photos from Unsplash under the free Unsplash license, icons and favicon are hand drawn SVG
 
 ## Structure
 
