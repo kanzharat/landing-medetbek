@@ -218,6 +218,8 @@ h3 {
 }
 
 .stripe {
+  display: grid;
+  place-items: center;
   padding: 18px 20px;
   text-align: center;
   font-size: 1.05rem;
@@ -623,9 +625,10 @@ main > section {
   }
 }
 
-@media (min-width: 760px) {
+/* tablet: 600px and up */
+@media (min-width: 600px) {
   .stripes {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .stripe-light {
@@ -642,7 +645,23 @@ main > section {
   }
 
   .footer-inner {
-    grid-template-columns: 1.6fr 1fr 1.4fr;
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
+  }
+
+  /* brand takes the whole first row */
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+/* desktop: 1024px and up */
+@media (min-width: 1024px) {
+  .footer-inner {
+    grid-template-columns: 1.6fr 1fr 1.4fr;
+  }
+
+  .footer-brand {
+    grid-column: auto;
   }
 }
